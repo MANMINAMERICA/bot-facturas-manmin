@@ -2,7 +2,11 @@
 import os
 import logging
 import sys
-from dotenv import load_dotenv
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
 from telegram import Update
 from telegram.ext import (
     ApplicationBuilder,
@@ -18,8 +22,6 @@ from handlers.start import start_command
 from handlers.factura import receive_invoice, confirm_invoice, reject_invoice, select_account
 from handlers.admin import admin_command, add_user_command, list_users_command, delete_user_command
 from database.db import init_db
-
-load_dotenv()
 
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
