@@ -2,7 +2,10 @@
 import os
 import json
 import logging
-import fitz
+try:
+    import fitz
+except ImportError:
+    import pymupdf as fitz
 from PIL import Image
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ContextTypes
