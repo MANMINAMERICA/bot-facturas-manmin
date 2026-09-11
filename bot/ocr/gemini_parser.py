@@ -14,20 +14,17 @@ except ImportError:
 
 logger = logging.getLogger(__name__)
 
-GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
-
-def configure_gemini():
-    if GEMINI_API_KEY:
-        genai.configure(api_key=GEMINI_API_KEY)
+def _get_gemini_key():
+    return os.getenv('GEMINI_API_KEY')
 
 def parse_invoice_with_ai(ocr_text):
     """Usa Google Gemini para extraer datos de la factura"""
-    if not GEMINI_API_KEY:
+    api_key = _get_gemini_key()
+    if not api_key:
         logger.warning("GEMINI_API_KEY no configurada, usando parseo basico")
         return None
 
-    configure_gemini()
-
+    genai.configure(api_key=api_key)
     model = genai.GenerativeModel('gemini-3.6-flash')
 
     prompt = f"""Eres un experto en facturas colombianas. Extrae los siguientes datos del texto OCR de una factura.

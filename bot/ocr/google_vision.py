@@ -15,17 +15,16 @@ except ImportError:
 
 logger = logging.getLogger(__name__)
 
-GOOGLE_VISION_API_KEY = os.getenv('GOOGLE_VISION_API_KEY')
-
 def extract_text_from_image(image_path):
-    if not GOOGLE_VISION_API_KEY:
+    api_key = os.getenv('GOOGLE_VISION_API_KEY')
+    if not api_key:
         logger.error("GOOGLE_VISION_API_KEY no configurada")
         return ""
 
     with open(image_path, 'rb') as f:
         image_content = base64.b64encode(f.read()).decode('utf-8')
 
-    url = f"https://vision.googleapis.com/v1/images:annotate?key={GOOGLE_VISION_API_KEY}"
+    url = f"https://vision.googleapis.com/v1/images:annotate?key={api_key}"
 
     payload = {
         "requests": [
