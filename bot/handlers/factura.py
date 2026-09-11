@@ -2,7 +2,7 @@
 import os
 import json
 import logging
-import pymupdf
+import fitz
 from PIL import Image
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ContextTypes
@@ -19,7 +19,6 @@ def load_cuentas():
 
 def pdf_to_image(pdf_path):
     try:
-import fitz
         doc = fitz.open(pdf_path)
         page = doc[0]
         pix = page.get_pixmap(dpi=200)
