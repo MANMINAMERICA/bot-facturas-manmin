@@ -1,0 +1,29 @@
+{
+  "cuentas_comunes": [
+    {"codigo": "51109501", "nombre": "Honorarios otros"},
+    {"codigo": "51201001", "nombre": "Arrendamiento edificio"},
+    {"codigo": "51352501", "nombre": "Acueducto y alcantarillado"},
+    {"codigo": "51353001", "nombre": "Energía eléctrica"},
+    {"codigo": "51353501", "nombre": "Internet y teléfono"},
+    {"codigo": "51354001", "nombre": "Correo, portes y envíos"},
+    {"codigo": "51355501", "nombre": "Gas"},
+    {"codigo": "51359501", "nombre": "Otros servicios públicos"},
+    {"codigo": "51401501", "nombre": "Softwares"},
+    {"codigo": "51454001", "nombre": "Reparación y mantenimiento vehículos"},
+    {"codigo": "51551501", "nombre": "Pasajes aéreos"},
+    {"codigo": "51559501", "nombre": "Peajes y transports"},
+    {"codigo": "51952501", "nombre": "Panadería, onces y refrigerios"},
+    {"codigo": "51952502", "nombre": "Bebidas y gaseosas"},
+    {"codigo": "51953001", "nombre": "Útiles, papelería y fotocopias"},
+    {"codigo": "51953501", "nombre": "Gasolina y combustible"},
+    {"codigo": "51954501", "nombre": "Servicios de mensajería y paquetería"},
+    {"codigo": "51956001", "nombre": "Restaurantes y casinos"},
+    {"codigo": "51956501", "nombre": "Parqueaderos"},
+    {"codigo": "51959501", "nombre": "Ferretería"},
+    {"codigo": "51959502", "nombre": "Premiaciones"},
+    {"codigo": "51959503", "nombre": "Gastos para confecciones"},
+    {"codigo": "51959504", "nombre": "Gastos para decoración"},
+    {"codigo": "51959505", "nombre": "Equipo de audio"},
+    {"codigo": "51959506", "nombre": "Servicios de transporte y envíos"}
+  ]
+}

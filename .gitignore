@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Environment
+.env
+config/service_account.json
+
+# Database
+data/*.db
+
+# Exports
+exports/*.xlsx
+exports/*.xls
+
+# Temp files
+bot/data/temp_*
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+Thumbs.db
+.DS_Store
