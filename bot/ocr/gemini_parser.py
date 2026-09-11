@@ -15,7 +15,11 @@ except ImportError:
 logger = logging.getLogger(__name__)
 
 def _get_gemini_key():
-    return os.getenv('GEMINI_API_KEY')
+    key = os.getenv('GEMINI_API_KEY')
+    if not key:
+        all_keys = [k for k in os.environ.keys() if 'GEMINI' in k.upper() or 'API' in k.upper() or 'TOKEN' in k.upper()]
+        logger.warning(f"Variables disponibles: {all_keys}")
+    return key
 
 def parse_invoice_with_ai(ocr_text):
     """Usa Google Gemini para extraer datos de la factura"""
