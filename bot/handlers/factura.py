@@ -19,8 +19,8 @@ def load_cuentas():
 
 def pdf_to_image(pdf_path):
     try:
-        import pymupdf
-        doc = pymupdf.open(pdf_path)
+import fitz
+        doc = fitz.open(pdf_path)
         page = doc[0]
         pix = page.get_pixmap(dpi=200)
         img_path = pdf_path.replace('.pdf', '.jpg')
