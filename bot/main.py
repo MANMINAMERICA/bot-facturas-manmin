@@ -30,17 +30,10 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
-GOOGLE_VISION_API_KEY = os.getenv('GOOGLE_VISION_API_KEY')
-GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
 
 def main():
-    print(f"DEBUG - TOKEN: {'SI' if TELEGRAM_BOT_TOKEN else 'NO'}")
-    print(f"DEBUG - VISION: {'SI' if GOOGLE_VISION_API_KEY else 'NO'}")
-    print(f"DEBUG - GEMINI: {'SI' if GEMINI_API_KEY else 'NO'}")
-    print(f"DEBUG - ALL VARS: {[k for k in os.environ.keys() if not k.startswith('_')]}")
-
     if not TELEGRAM_BOT_TOKEN:
-        print("ERROR: No se encontró TELEGRAM_BOT_TOKEN en el archivo .env")
+        print("ERROR: No se encontró TELEGRAM_BOT_TOKEN")
         return
 
     init_db()

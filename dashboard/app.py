@@ -9,8 +9,10 @@ from datetime import datetime
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'bot'))
 
 DB_DIR = os.path.join(os.path.dirname(__file__), '..', 'data')
-DB_PATH = os.path.join(DB_DIR, 'facturas.db')
-EXPORTS_DIR = os.path.join(os.path.dirname(__file__), '..', 'exports')
+DB_PATH = os.getenv('DATABASE_PATH', os.path.join(DB_DIR, 'facturas.db'))
+EXPORTS_DIR = os.getenv('EXPORTS_PATH', os.path.join(os.path.dirname(__file__), '..', 'exports'))
+
+os.makedirs(os.path.dirname(DB_PATH), exist_ok=True)
 
 st.set_page_config(page_title="Facturas HELISA - Iglesia MANMIN", page_icon="📊", layout="wide")
 
