@@ -2,7 +2,7 @@
 import os
 import logging
 import sys
-import threading
+import subprocess
 try:
     from dotenv import load_dotenv
     load_dotenv()
@@ -34,9 +34,9 @@ TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
 
 def start_api_server():
     try:
-        sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
-        from api import main as api_main
-        api_main()
+        api_path = os.path.join(os.path.dirname(__file__), '..', 'api.py')
+        subprocess.Popen([sys.executable, api_path])
+        print("API server iniciado")
     except Exception as e:
         print(f"API server error: {e}")
 
@@ -47,9 +47,7 @@ def main():
 
     init_db()
 
-    api_thread = threading.Thread(target=start_api_server, daemon=True)
-    api_thread.start()
-    print("API server iniciado")
+    start_api_server()
 
     app = ApplicationBuilder().token(TELEGRAM_BOT_TOKEN).build()
 
