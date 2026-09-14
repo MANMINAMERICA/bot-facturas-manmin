@@ -2,6 +2,7 @@
 import os
 import logging
 import sys
+import threading
 try:
     from dotenv import load_dotenv
     load_dotenv()
@@ -31,12 +32,23 @@ logger = logging.getLogger(__name__)
 
 TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
 
+def start_api_server():
+    try:
+        from api import main as api_main
+        api_main()
+    except Exception as e:
+        print(f"API server error: {e}")
+
 def main():
     if not TELEGRAM_BOT_TOKEN:
         print("ERROR: No se encontró TELEGRAM_BOT_TOKEN")
         return
 
     init_db()
+
+    api_thread = threading.Thread(target=start_api_server, daemon=True)
+    api_thread.start()
+    print("API server iniciado")
 
     app = ApplicationBuilder().token(TELEGRAM_BOT_TOKEN).build()
 
