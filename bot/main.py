@@ -34,9 +34,10 @@ TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
 
 def start_api_server():
     try:
-        api_path = os.path.join(os.path.dirname(__file__), '..', 'api.py')
-        subprocess.Popen([sys.executable, api_path])
-        print("API server iniciado")
+        root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        api_path = os.path.join(root_dir, 'api.py')
+        subprocess.Popen([sys.executable, api_path], cwd=root_dir)
+        print(f"API server iniciado desde {api_path}")
     except Exception as e:
         print(f"API server error: {e}")
 
