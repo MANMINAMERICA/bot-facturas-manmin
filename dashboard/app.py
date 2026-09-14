@@ -7,7 +7,7 @@ import pandas as pd
 import streamlit as st
 from datetime import datetime
 
-API_URL = os.getenv('API_URL', 'http://localhost:8080')
+API_URL = os.getenv('API_URL', 'https://bot-facturas-manmin-production.up.railway.app')
 
 st.set_page_config(page_title="Facturas HELISA - Iglesia MANMIN", page_icon="📊", layout="wide")
 

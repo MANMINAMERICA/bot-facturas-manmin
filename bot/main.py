@@ -34,6 +34,7 @@ TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
 
 def start_api_server():
     try:
+        sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
         from api import main as api_main
         api_main()
     except Exception as e:
